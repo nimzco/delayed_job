@@ -77,7 +77,7 @@ module Delayed
                     payload_object.display_name :
                     payload_object.class.name
       rescue DeserializationError
-        ParseObjectFromYaml.match(handler)[1]
+        ParseObjectFromYaml.match(handler)[1] unless handler.blank?
       end
 
       def payload_object=(object)
